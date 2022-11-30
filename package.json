@@ -1,0 +1,30 @@
+{
+  "name": "graphql-auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --config nodemon.json index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-express": "^3.11.1",
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "graphql": "^16.6.0",
+    "graphql-middleware": "^6.1.33",
+    "graphql-shield": "^7.6.5",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.12.1",
+    "mongoose": "^6.7.4",
+    "nodemon": "^2.0.20",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/jsonwebtoken": "^8.5.9"
+  }
+}
