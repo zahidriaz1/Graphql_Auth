@@ -1,11 +1,11 @@
-import {gql} from "apollo-server-express"
-export const typeDefs =gql`
+import { gql } from "apollo-server-express"
+export const typeDefs = gql`
 
 type User {
     email:String 
     userName:String 
     password: String 
-    userType :String
+    userType :USERTYPES
     token :String 
 
 }
@@ -27,13 +27,13 @@ enum USERTYPES {
     Boother
 }
 
-
 type Query {
     hello:String
 }
+
 type Mutation {
-    registerUser(user:signupInput):String
-    loginUser(user:loginInput):String
+    registerUser(user:signupInput):User
+    loginUser(user:loginInput):User
 }
 
 `
