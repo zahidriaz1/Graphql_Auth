@@ -29,11 +29,15 @@ enum USERTYPES {
 
 type Query {
     hello:String
+    getUsers:[User]
 }
+
+directive @auth(
+    requires: USERTYPES!,
+  ) on FIELD_DEFINITION
 
 type Mutation {
     registerUser(user:signupInput):User
     loginUser(user:loginInput):User
-}
-
+}   
 `
