@@ -1,11 +1,12 @@
 import { gql } from "apollo-server-express"
-export const typeDefs = gql`
 
+export const typeDefs = gql`
+directive @auth (role:String) on FIELD_DEFINITION
 type User {
     email:String 
     userName:String 
     password: String 
-    userType :USERTYPES
+    userType :USERTYPES 
     token :String 
 
 }
@@ -20,22 +21,15 @@ input signupInput {
     userName:String 
     password: String 
     userType :USERTYPES
-
 }
 enum USERTYPES {
     Admin 
     Boother
 }
-
 type Query {
-    hello:String
-    getUsers:[User]
+    hello:String @auth (role :"Admin")
+    getUsers:[User] @auth (role :"Admin")
 }
-
-directive @auth(
-    requires: USERTYPES!,
-  ) on FIELD_DEFINITION
-
 type Mutation {
     registerUser(user:signupInput):User
     loginUser(user:loginInput):User
